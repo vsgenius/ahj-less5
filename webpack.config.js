@@ -1,41 +1,17 @@
-const path = require("path");
-const HtmlWebPackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const {merge} = require('webpack-merge')
+const commonConfig = require('./webpack.common.config.js');
 
-module.exports = {
-  mode: "production",
-  entry: "./src/index.js",
-  output: {
-    filename: "main.js",
-    path: path.resolve(__dirname, "dist"),
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-        },
-      },
-      {
-        test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
-      },
-      {
-        test: /\.html$/i,
-        loader: "html-loader",
-      },
-    ],
-  },
-  output: {
-    path: path.resolve(__dirname, "dist"),
-  },
-  plugins: [
-    new HtmlWebPackPlugin({
-      template: "./src/index.html",
-      filename: "./index.html",
-    }),
-    new MiniCssExtractPlugin(),
-  ],
-};
+const productionConfig = require('./webpack.production.config.js');
+
+const developmentConfig = require('./webpack.development.config.js');
+
+module.exports = (env, args) => {
+  switch(args.mode) {
+    case 'development':
+      return merge(commonConfig, developmentConfig);
+    case 'production':
+      return merge(commonConfig, productionConfig);
+    default:
+      throw new Error('No matching configuration was found!');
+  }
+}
