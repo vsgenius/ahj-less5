@@ -1,0 +1,15 @@
+.image {
+    height: 15px;
+    width: 30px;
+}
+.hidden {
+    -webkit-filter: blur(2px); 
+    filter: blur(2px); 
+}
+button {
+    background-color: green;
+    height: 25px;
+    width: 150px;
+    color: aliceblue;
+    border-radius: 5px; /* Уголки */
+}
