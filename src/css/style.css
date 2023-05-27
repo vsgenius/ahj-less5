@@ -1,15 +1,33 @@
-.image {
-    height: 15px;
-    width: 30px;
+.btn {
+    height: 50px;
+    width: 200px;
+    border: none;
+    background-color: red;
+    border-radius: 5px;
+    font-size: 18px;
+    color: white;
+    margin-top: 200px;
 }
-.hidden {
-    -webkit-filter: blur(2px); 
-    filter: blur(2px); 
+.popover {
+    position: absolute;
+    height: 100px;
+    width: 200px;
+    border: 1px;
+    font-size: 12px;
+    border: 2px solid rgb(180, 179, 179);
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
 }
-button {
-    background-color: green;
-    height: 25px;
-    width: 150px;
-    color: aliceblue;
-    border-radius: 5px; /* Уголки */
+.popover-header {
+    border-radius: 2px;
+    background-color:rgb(235, 235, 222);
+    height: 20px;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+.popover-body {
+font-size: 12px;
+padding: 10px;
 }
