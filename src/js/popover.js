@@ -19,10 +19,10 @@ export class Popover {
       element: popoverElement,
     });
     console.log(element.getBoundingClientRect())
-    const {left ,top, height} = element.getBoundingClientRect();
+    const {left ,top,height} = element.getBoundingClientRect();
 
     popoverElement.style.left = left + 'px';
-    popoverElement.style.bottom = top - height +10 + 'px';
+    popoverElement.style.top = top - 70 - height + 'px';
     document.body.appendChild(popoverElement);
     return id;
   }
